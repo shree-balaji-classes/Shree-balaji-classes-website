@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+<rect width="900" height="700" fill="#f2e9df"/>
+<circle cx="450" cy="300" r="150" fill="#dce8e0"/>
+<text x="450" y="330" text-anchor="middle" font-family="Arial" font-size="42" fill="#6f716f">Projects</text>
+<text x="450" y="380" text-anchor="middle" font-family="Arial" font-size="20" fill="#96918b">Replace with your photo</text>
+</svg>
