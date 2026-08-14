@@ -1387,3 +1387,523 @@ body.lightbox-open {
 .gallery-photo-grid .gallery-item:hover .gallery-item-caption {
   box-shadow: 0 8px 20px rgba(7, 89, 133, 0.22) !important;
 }
+/* =========================================================
+   PROJECT STUDIO
+   PROJECT IMAGE GALLERY
+========================================================= */
+
+.projects {
+  background:
+    linear-gradient(
+      135deg,
+      #DDF7FF 0%,
+      #EAF8FF 55%,
+      #F3FBFF 100%
+    );
+}
+
+
+/* Project category pills */
+
+.project-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 38px;
+  margin-bottom: 30px;
+}
+
+.project-pills span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 21px;
+
+  background: #FFFFFF;
+  color: #075985;
+
+  border: 1px solid #CFE7F5;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  box-shadow:
+    0 8px 20px rgba(7, 89, 133, .06);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.project-pills span:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 30px rgba(7, 89, 133, .12);
+}
+
+
+/* =========================================================
+   PROJECT GRID
+========================================================= */
+
+.project-gallery-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-top: 30px;
+}
+
+
+/* =========================================================
+   PROJECT CARD
+========================================================= */
+
+.project-gallery-card {
+  position: relative;
+
+  width: 100%;
+  height: 300px;
+
+  display: block;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 4px solid #FFFFFF;
+  border-radius: 26px;
+
+  background: #DDF4FF;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 30px rgba(7, 89, 133, .10);
+
+  isolation: isolate;
+
+  text-align: left;
+
+  transition:
+    transform .35s cubic-bezier(.2,.8,.2,1),
+    box-shadow .35s ease;
+}
+
+
+/* Wide cards */
+
+.project-gallery-card.project-gallery-wide {
+  grid-column: span 2;
+  height: 340px;
+}
+
+
+/* Image */
+
+.project-gallery-card img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition:
+    transform .6s cubic-bezier(.2,.8,.2,1),
+    filter .4s ease;
+}
+
+
+/* Dark image gradient */
+
+.project-gallery-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 42, 64, 0) 40%,
+      rgba(7, 42, 64, .72) 72%,
+      rgba(7, 42, 64, .88) 100%
+    );
+
+  pointer-events: none;
+
+  transition:
+    background .35s ease;
+}
+
+
+/* Hover */
+
+.project-gallery-card:hover {
+  transform:
+    translateY(-7px);
+
+  box-shadow:
+    0 24px 48px rgba(7, 89, 133, .18);
+
+  z-index: 3;
+}
+
+
+.project-gallery-card:hover img {
+  transform: scale(1.06);
+
+  filter:
+    saturate(1.08)
+    contrast(1.03);
+}
+
+
+/* =========================================================
+   TITLE BLOCK
+========================================================= */
+
+.project-gallery-title {
+  position: absolute;
+
+  left: 18px;
+  right: 18px;
+  bottom: 17px;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  padding: 13px 16px;
+
+  background:
+    rgba(255,255,255,.96);
+
+  color: #075985;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 8px 22px rgba(0,0,0,.14);
+
+  pointer-events: none;
+}
+
+
+/* Main title */
+
+.project-gallery-title strong {
+  display: block;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.25;
+
+  font-weight: 800;
+
+  color: #102A43;
+}
+
+
+/* Subtitle */
+
+.project-gallery-title small {
+  display: block;
+
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 10px;
+
+  line-height: 1.3;
+
+  font-weight: 700;
+
+  color: #486581;
+
+  letter-spacing: .02em;
+}
+
+
+/* =========================================================
+   PROJECT LIGHTBOX
+========================================================= */
+
+.project-gallery-lightbox {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background:
+    rgba(3, 31, 48, .92);
+
+  backdrop-filter:
+    blur(8px);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity .3s ease,
+    visibility .3s ease;
+}
+
+
+.project-gallery-lightbox.active {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+
+/* Full-size project image */
+
+.project-gallery-lightbox img {
+  display: block;
+
+  max-width:
+    min(1100px, 92vw);
+
+  max-height: 88vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.45);
+
+  transform:
+    scale(.96);
+
+  transition:
+    transform .3s ease;
+}
+
+
+.project-gallery-lightbox.active img {
+  transform:
+    scale(1);
+}
+
+
+/* Close button */
+
+.project-gallery-lightbox-close {
+  position: absolute;
+
+  top: 20px;
+  right: 25px;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #FFFFFF;
+
+  color: #075985;
+
+  font-size: 30px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.2);
+
+  transition:
+    transform .2s ease,
+    background .2s ease;
+}
+
+
+.project-gallery-lightbox-close:hover {
+  transform:
+    rotate(90deg);
+
+  background:
+    #DDF7FF;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .project-gallery-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .project-gallery-card.project-gallery-wide {
+    grid-column: span 1;
+
+    height: 300px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 620px) {
+
+  .project-pills {
+    gap: 8px;
+  }
+
+  .project-pills span {
+    padding:
+      11px 15px;
+
+    font-size: 10px;
+  }
+
+
+  .project-gallery-grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+
+  .project-gallery-card,
+  .project-gallery-card.project-gallery-wide {
+    grid-column: span 1;
+
+    width: 100%;
+
+    height: 300px;
+  }
+
+
+  .project-gallery-title {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+
+    padding:
+      12px 14px;
+  }
+
+
+  .project-gallery-title strong {
+    font-size: 14px;
+  }
+
+
+  .project-gallery-title small {
+    font-size: 9px;
+  }
+
+
+  .project-gallery-lightbox {
+    padding: 15px;
+  }
+
+
+  .project-gallery-lightbox img {
+    max-width: 94vw;
+    max-height: 82vh;
+
+    border-radius: 12px;
+  }
+
+
+  .project-gallery-lightbox-close {
+    top: 12px;
+    right: 14px;
+
+    width: 44px;
+    height: 44px;
+
+    font-size: 27px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.project-gallery-card:focus-visible {
+  outline:
+    4px solid #22D3EE;
+
+  outline-offset:
+    4px;
+}
+
+
+.project-gallery-lightbox-close:focus-visible {
+  outline:
+    3px solid #22D3EE;
+
+  outline-offset:
+    3px;
+}
+
+
+/* Prevent background scrolling while popup is open */
+
+body.lightbox-open {
+  overflow: hidden;
+}
