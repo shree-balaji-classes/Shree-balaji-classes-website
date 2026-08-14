@@ -334,5 +334,37 @@
     }
   });
 </script>
+<!-- Jaya Prada Image Popup -->
+<div id="achievementLightbox" class="achievement-lightbox">
+  <span class="achievement-lightbox-close" onclick="closeAchievementLightbox()">×</span>
+
+  <img
+    src="assets/media/jaya-prada-recognition.png"
+    alt="Recognition by Jaya Prada"
+    onclick="event.stopPropagation()"
+  >
+</div>
+
+<script>
+function openAchievementLightbox() {
+  document.getElementById("achievementLightbox").classList.add("active");
+}
+
+function closeAchievementLightbox() {
+  document.getElementById("achievementLightbox").classList.remove("active");
+}
+
+document.getElementById("achievementLightbox").addEventListener("click", function(e) {
+  if (e.target === this) {
+    closeAchievementLightbox();
+  }
+});
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    closeAchievementLightbox();
+  }
+});
+</script>  
 </body>
 </html>
