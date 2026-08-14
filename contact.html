@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact the academy for tuition, handwriting, calligraphy, art, project and counselling enquiries.">
+  <title>Contact | Little Canvas Learning Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">✨ Small batches. Big attention. &nbsp;•&nbsp; Only 7 students per batch.</div>
+  <header class="nav">
+    <a class="brand" href="index.html"><span class="brand-mark">✦</span><span><b id="academyName">Little Canvas</b><small>LEARNING STUDIO</small></span></a>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+    <nav class="nav-links"><a href="index.html#about">About</a><a href="index.html#classes">Classes</a><a href="index.html#skills">Skills</a><a href="index.html#gallery">Gallery</a><a href="index.html#achievement">Achievement</a><a href="contact.html">Contact</a><a class="nav-cta whatsapp" href="#" data-message="Hello, I would like to know more about the classes for my child.">WhatsApp Us ↗</a></nav>
+  </header>
+  <main>
+    <section class="page-hero"><p class="eyebrow">LET'S TALK</p><h1>Come say <em>hello.</em></h1><p>Have a question about classes, batches, art activities or projects? Send a WhatsApp message directly to the teacher.</p></section>
+    <section class="section contact-grid">
+      <div class="contact-card"><p class="eyebrow">VISIT THE ACADEMY</p><h2 id="address">[FULL CLASS ADDRESS HERE]</h2><p class="muted">Add the exact area, city, state and PIN code in <b>config.js</b>.</p><a id="mapLink" class="map-placeholder" href="#" target="_blank" rel="noopener">GOOGLE MAP<br><small>Open academy location</small></a></div>
+      <div class="contact-card"><p class="eyebrow">QUICK ENQUIRY</p><form id="enquiryForm">
+        <label>Parent's Name<input name="parent" required placeholder="Your name"></label>
+        <label>Student's Name<input name="student" required placeholder="Child's name"></label>
+        <label>Student's Class<select name="class"><option>Class 1–2</option><option>Class 3–5</option><option>Class 6–8</option><option>Other</option></select></label>
+        <label>Interested In<select name="service"><option>Tuition Classes</option><option>Handwriting Improvement</option><option>Calligraphy</option><option>Drawing / Painting</option><option>Art & Craft</option><option>School / College Projects</option><option>Counselling</option><option>Other</option></select></label>
+        <label>Phone Number<input name="phone" type="tel" required placeholder="Your phone number"></label>
+        <label>Message<textarea name="message" rows="4" placeholder="Tell us what you'd like to know..."></textarea></label>
+        <button class="btn btn-primary" type="submit">Send Enquiry on WhatsApp ↗</button>
+      </form></div>
+    </section>
+    <section class="section contact-mini"><div><p class="eyebrow">DIRECT CONTACT</p><h2>Prefer to just <em>message?</em></h2></div><div><p><b>Teacher:</b> <span id="teacherContact">[TEACHER NAME]</span></p><p><b>WhatsApp:</b> <span id="whatsappDisplay">[WHATSAPP NUMBER]</span></p><p><b>Phone:</b> <span id="phoneDisplay">[PHONE NUMBER]</span></p><a class="btn btn-dark whatsapp" href="#" data-message="Hello, I would like to enquire about your academy.">Chat on WhatsApp ↗</a></div></section>
+  </main>
+  <footer><div class="footer-main"><div class="brand"><span class="brand-mark">✦</span><span><b>Little Canvas</b><small>LEARNING STUDIO</small></span></div><p>Learning • Creativity • Confidence</p></div><div class="footer-bottom"><span>© 2026 Little Canvas. All rights reserved.</span><span>Made for curious minds ✦</span></div></footer>
+  <div class="floating-whatsapp whatsapp" data-message="Hello, I would like to enquire about the academy.">☏</div>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
