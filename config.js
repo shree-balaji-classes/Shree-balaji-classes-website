@@ -8,6 +8,6 @@ window.ACADEMY_CONFIG = {
   address: "Infront of Rajput Boarding Shree Balaji classes, near priti city scan center, Shastri Nagar, Ratlam, Madhya Pradesh 457001",
   phone: "+919660674424",
   whatsapp: "919660674424",
-  email: "devinekh@gmail.com",
+  email: "devinekhush@gmail.com",
   mapsUrl: "https://maps.app.goo.gl/mr1oWPdZaRPbiQAB7"
 };
