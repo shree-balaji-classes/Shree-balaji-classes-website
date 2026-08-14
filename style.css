@@ -955,3 +955,363 @@ body.lightbox-open {
   }
 
 }
+
+
+/* =========================================================
+   FINAL GALLERY TILE FIX
+   Clean square/rectangle blocks — NO OVERLAPPING
+   This section intentionally comes LAST so it overrides
+   all earlier gallery rules in this stylesheet.
+   ========================================================= */
+
+.gallery-photo-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  grid-auto-rows: 280px !important;
+  gap: 18px !important;
+  width: 100% !important;
+  margin-top: 30px !important;
+  align-items: stretch !important;
+}
+
+/* Every gallery item is an independent rectangular tile */
+.gallery-photo {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+
+  grid-column: span 1 !important;
+  grid-row: span 1 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 4px solid #fff !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+
+  background: #dff3ff !important;
+  cursor: pointer !important;
+
+  box-shadow: 0 10px 28px rgba(7, 89, 133, 0.10) !important;
+
+  transform: none !important;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+
+/* A few larger landscape tiles for visual variety */
+.gallery-photo:nth-child(1),
+.gallery-photo:nth-child(6),
+.gallery-photo:nth-child(11) {
+  grid-column: span 2 !important;
+}
+
+/* Images always stay inside their own tile */
+.gallery-photo img {
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  display: block !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
+
+  transform: none !important;
+
+  transition: transform 0.5s ease, filter 0.3s ease !important;
+}
+
+/* Hover */
+.gallery-photo:hover {
+  transform: translateY(-5px) !important;
+  z-index: 2 !important;
+  box-shadow: 0 20px 42px rgba(7, 89, 133, 0.18) !important;
+}
+
+.gallery-photo:hover img {
+  transform: scale(1.05) !important;
+  filter: saturate(1.06) !important;
+}
+
+/* Bottom readability gradient */
+.gallery-photo::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 45% 0 0 0 !important;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(5, 35, 65, 0.78)
+  ) !important;
+
+  pointer-events: none !important;
+}
+
+/* Caption */
+.gallery-photo span,
+.gallery-caption {
+  position: absolute !important;
+  left: 16px !important;
+  right: auto !important;
+  bottom: 16px !important;
+
+  z-index: 4 !important;
+
+  max-width: calc(100% - 32px) !important;
+
+  padding: 8px 12px !important;
+
+  border-radius: 999px !important;
+
+  background: rgba(255, 255, 255, 0.94) !important;
+  color: #075985 !important;
+
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+
+  line-height: 1.2 !important;
+
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Video play button */
+.gallery-photo .media-play {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  bottom: auto !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  width: 56px !important;
+  height: 56px !important;
+
+  padding: 0 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  border-radius: 50% !important;
+  border: 0 !important;
+
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #0284c7 !important;
+
+  font-size: 18px !important;
+
+  z-index: 5 !important;
+
+  box-shadow: 0 10px 25px rgba(7, 89, 133, 0.20) !important;
+}
+
+/* Make missing-image cards behave like normal tiles */
+.gallery-photo.missing {
+  display: grid !important;
+  place-items: center !important;
+  background: #bdeaff !important;
+}
+
+/* Remove old masonry/rotation rules completely */
+.gallery-photo:nth-child(2),
+.gallery-photo:nth-child(3),
+.gallery-photo:nth-child(4),
+.gallery-photo:nth-child(5),
+.gallery-photo:nth-child(7),
+.gallery-photo:nth-child(8),
+.gallery-photo:nth-child(9),
+.gallery-photo:nth-child(10),
+.gallery-photo:nth-child(12),
+.gallery-photo:nth-child(13),
+.gallery-photo:nth-child(14),
+.gallery-photo:nth-child(15),
+.gallery-photo:nth-child(16),
+.gallery-photo:nth-child(17),
+.gallery-photo:nth-child(18),
+.gallery-photo:nth-child(19),
+.gallery-photo:nth-child(20),
+.gallery-photo:nth-child(21),
+.gallery-photo:nth-child(22),
+.gallery-photo:nth-child(23),
+.gallery-photo:nth-child(24),
+.gallery-photo:nth-child(25) {
+  transform: none !important;
+}
+
+/* =========================================================
+   GALLERY LIGHTBOX — IMAGE/VIDEO ONLY
+   ========================================================= */
+
+.gallery-lightbox {
+  position: fixed !important;
+  inset: 0 !important;
+
+  z-index: 99999 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 25px !important;
+
+  background: rgba(3, 31, 48, 0.93) !important;
+  backdrop-filter: blur(8px) !important;
+
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease !important;
+}
+
+.gallery-lightbox.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.gallery-lightbox-content {
+  position: relative !important;
+
+  max-width: 94vw !important;
+  max-height: 90vh !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.gallery-lightbox-content img,
+.gallery-lightbox-content video {
+  display: block !important;
+
+  max-width: 94vw !important;
+  max-height: 88vh !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  object-fit: contain !important;
+
+  border-radius: 14px !important;
+
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45) !important;
+}
+
+.gallery-lightbox-close {
+  position: absolute !important;
+
+  top: 20px !important;
+  right: 25px !important;
+
+  z-index: 10 !important;
+
+  width: 48px !important;
+  height: 48px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 0 !important;
+  border-radius: 50% !important;
+
+  background: #fff !important;
+  color: #075985 !important;
+
+  font-size: 30px !important;
+  line-height: 1 !important;
+
+  cursor: pointer !important;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20) !important;
+}
+
+.gallery-lightbox-close:hover {
+  background: #a7f3ff !important;
+  transform: scale(1.06) !important;
+}
+
+/* =========================================================
+   RESPONSIVE GALLERY
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .gallery-photo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-auto-rows: 270px !important;
+  }
+
+  .gallery-photo:nth-child(1),
+  .gallery-photo:nth-child(6),
+  .gallery-photo:nth-child(11) {
+    grid-column: span 1 !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery-photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-rows: 260px !important;
+    gap: 16px !important;
+  }
+
+  .gallery-photo,
+  .gallery-photo:nth-child(1),
+  .gallery-photo:nth-child(6),
+  .gallery-photo:nth-child(11) {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .gallery-photo-grid {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: 300px !important;
+    gap: 16px !important;
+  }
+
+  .gallery-photo,
+  .gallery-photo:nth-child(1),
+  .gallery-photo:nth-child(6),
+  .gallery-photo:nth-child(11) {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  .gallery-photo {
+    border-radius: 20px !important;
+  }
+
+  .gallery-lightbox {
+    padding: 15px !important;
+  }
+
+  .gallery-lightbox-content img,
+  .gallery-lightbox-content video {
+    max-width: 96vw !important;
+    max-height: 82vh !important;
+  }
+
+  .gallery-lightbox-close {
+    top: 14px !important;
+    right: 14px !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 27px !important;
+  }
+}
