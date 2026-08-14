@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (el) el.textContent = value || fallback;
   }
 
-  setText("academyName", cfg.academyName, "Shree Balaji Classes");
+ setText("academyName", cfg.academyName, "Shree Balaji Classes");
   setText("footerName", cfg.academyName, "Shree Balaji Classes");
   setText("footerYearName", cfg.academyName, "Shree Balaji Classes");
   setText("teacherName", cfg.teacherName, "Khushboo Agrawal");
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll("section").forEach((el) => observer.observe(el));
+  document.querySelectorAll("section, .reveal").forEach((el) => observer.observe(el));
 
   // Contact form -> WhatsApp
   const form = $("enquiryForm");

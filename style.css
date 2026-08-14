@@ -121,6 +121,15 @@ body{color:var(--ink);background:var(--cream)}
 .contact-card input:focus,.contact-card select:focus,.contact-card textarea:focus{border-color:#38BDF8}
 footer{background:#fff;border-top-color:#CFE7F5}.floating-whatsapp{background:#0284C7}
 
+/* Added academy banner only — all existing design/content remains unchanged */
+.hero-banner-card{position:absolute;z-index:1;width:min(520px,92%);height:230px;border-radius:26px;overflow:hidden;background:#fff;border:6px solid #fff;box-shadow:0 24px 60px rgba(7,89,133,.18);transform:rotate(1deg);transition:transform .35s ease,box-shadow .35s ease}
+.hero-banner-card img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-banner-card:hover{transform:rotate(0deg) translateY(-5px);box-shadow:0 30px 70px rgba(7,89,133,.22)}
+.hero-art .main-card{z-index:2;transform:rotate(4deg) translateY(80px) scale(.72);transform-origin:center bottom}
+.hero-art .floating-note{z-index:4}
+@media(max-width:900px){.hero-banner-card{width:min(500px,90%);height:210px}.hero-art .main-card{transform:rotate(4deg) translateY(65px) scale(.68)}}
+@media(max-width:560px){.hero-banner-card{height:170px}.hero-art .main-card{transform:rotate(4deg) translateY(48px) scale(.6)}}
+
 /* One unified gallery — deliberately no tabs/filter buttons */
 .gallery{background:radial-gradient(circle at 10% 20%,rgba(34,211,238,.12),transparent 20%),linear-gradient(180deg,#F7FCFF,#EAF8FF)}
 .gallery-badge{display:inline-flex;margin-top:28px;padding:9px 14px;border-radius:999px;background:#DDF7F0;color:#087EA4;font-size:10px;font-weight:900;letter-spacing:.12em}
@@ -147,4 +156,69 @@ footer{background:#fff;border-top-color:#CFE7F5}.floating-whatsapp{background:#0
   .gallery-photo-grid{grid-template-columns:1fr;grid-auto-rows:260px}
   .gallery-photo,.gallery-photo:nth-child(1),.gallery-photo:nth-child(8),.gallery-photo:nth-child(15),.gallery-photo:nth-child(22){grid-column:span 1;grid-row:span 1}
   .teacher-sticker{left:-5px}.teacher-doodle{right:4px}
+}
+
+
+/* Interactive image cards for the Art Studio */
+.art-photo-tile{
+  padding:0;
+  min-height:280px;
+  isolation:isolate;
+  cursor:pointer;
+}
+.art-photo-tile img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .4s ease;
+}
+.art-photo-tile:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(7,89,133,.02) 25%,rgba(7,42,64,.78) 100%);
+  z-index:1;
+  transition:background .35s ease;
+}
+.art-tile-overlay{
+  position:relative;
+  z-index:2;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:28px;
+  color:#fff;
+  transform:translateY(8px);
+  transition:transform .35s ease;
+}
+.art-tile-overlay span{
+  font-family:Kalam,cursive;
+  font-size:34px;
+  line-height:1;
+  text-shadow:0 2px 14px rgba(0,0,0,.18);
+}
+.art-tile-overlay small{
+  font-family:"DM Sans",sans-serif;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:.9;
+}
+.art-photo-tile:hover img{
+  transform:scale(1.08);
+  filter:saturate(1.12) contrast(1.03);
+}
+.art-photo-tile:hover:after{
+  background:linear-gradient(180deg,rgba(7,89,133,.04) 18%,rgba(7,42,64,.88) 100%);
+}
+.art-photo-tile:hover .art-tile-overlay{
+  transform:translateY(0);
+}
+@media(max-width:560px){
+  .art-photo-tile{min-height:250px}
+  .art-tile-overlay{padding:22px}
 }
