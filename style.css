@@ -466,3 +466,152 @@ footer{background:#fff;border-top-color:#CFE7F5}.floating-whatsapp{background:#0
     font-size:30px;
   }
 }
+/* =========================================
+   ART IMAGE LIGHTBOX
+   ========================================= */
+
+.art-photo-tile {
+  cursor: pointer;
+}
+
+.art-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  background: rgba(5, 25, 45, 0.88);
+  backdrop-filter: blur(8px);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.art-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.art-lightbox img {
+  display: block;
+
+  max-width: min(90vw, 1200px);
+  max-height: 85vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 16px;
+
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+
+  transform: scale(0.92);
+  transition: transform 0.3s ease;
+}
+
+.art-lightbox.active img {
+  transform: scale(1);
+}
+
+.art-lightbox-close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #075985;
+
+  font-size: 32px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.art-lightbox-close:hover {
+  transform: rotate(90deg) scale(1.08);
+  background: #fef08a;
+}
+
+.art-lightbox-caption {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 8px 18px;
+
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.95);
+  color: #063b63;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+
+  text-align: center;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+
+/* MOBILE */
+@media (max-width: 700px) {
+
+  .art-lightbox {
+    padding: 20px;
+  }
+
+  .art-lightbox img {
+    max-width: 94vw;
+    max-height: 78vh;
+    border-radius: 12px;
+  }
+
+  .art-lightbox-close {
+    top: 15px;
+    right: 15px;
+
+    width: 42px;
+    height: 42px;
+
+    font-size: 28px;
+  }
+
+  .art-lightbox-caption {
+    bottom: 15px;
+
+    max-width: 85vw;
+
+    font-size: 12px;
+  }
+}
