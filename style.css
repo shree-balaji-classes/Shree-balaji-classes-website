@@ -690,3 +690,90 @@ body.lightbox-open {
     font-size: 12px;
   }
 }
+/* Clickable recognition image */
+.achievement-image-trigger {
+  cursor: pointer;
+}
+
+.achievement-image-trigger img {
+  cursor: pointer;
+}
+
+/* Image-only popup */
+.achievement-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(3, 31, 48, 0.92);
+  backdrop-filter: blur(8px);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity .25s ease, visibility .25s ease;
+}
+
+.achievement-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* ONLY THE IMAGE */
+.achievement-lightbox img {
+  max-width: 90vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, .45);
+
+  transform: scale(.94);
+  transition: transform .25s ease;
+}
+
+.achievement-lightbox.active img {
+  transform: scale(1);
+}
+
+/* Close button */
+.achievement-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: white;
+  color: #075985;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  z-index: 2;
+}
+
+.achievement-lightbox-close:hover {
+  background: #A7F3FF;
+}
