@@ -1315,3 +1315,75 @@ body.lightbox-open {
     font-size: 27px !important;
   }
 }
+/* =========================================================
+   GALLERY CAPTIONS — WHITE PILL BOX STYLE
+   ========================================================= */
+
+/* Force every gallery title into a proper white box */
+.gallery-photo-grid .gallery-photo span,
+.gallery-photo-grid .gallery-item span,
+.gallery-photo-grid .gallery-photo .gallery-caption,
+.gallery-photo-grid .gallery-item .gallery-caption,
+.gallery-photo-grid .gallery-photo .gallery-item-caption,
+.gallery-photo-grid .gallery-item .gallery-item-caption {
+  position: absolute !important;
+
+  left: 50% !important;
+  bottom: 16px !important;
+
+  transform: translateX(-50%) !important;
+
+  display: block !important;
+
+  width: max-content !important;
+  max-width: calc(100% - 32px) !important;
+
+  padding: 9px 16px !important;
+
+  background: #ffffff !important;
+
+  color: #075985 !important;
+
+  border-radius: 999px !important;
+
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+
+  line-height: 1.2 !important;
+  text-align: center !important;
+
+  white-space: nowrap !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+
+  box-shadow: 0 5px 15px rgba(7, 89, 133, 0.15) !important;
+
+  z-index: 10 !important;
+
+  opacity: 1 !important;
+}
+
+/* Make sure the gradient doesn't cover the caption */
+.gallery-photo-grid .gallery-photo::after,
+.gallery-photo-grid .gallery-item::after {
+  z-index: 2 !important;
+}
+
+.gallery-photo-grid .gallery-photo span,
+.gallery-photo-grid .gallery-item span,
+.gallery-photo-grid .gallery-caption,
+.gallery-photo-grid .gallery-item-caption {
+  z-index: 10 !important;
+}
+
+/* Hover effect on the caption */
+.gallery-photo-grid .gallery-photo:hover span,
+.gallery-photo-grid .gallery-item:hover span,
+.gallery-photo-grid .gallery-photo:hover .gallery-caption,
+.gallery-photo-grid .gallery-item:hover .gallery-caption,
+.gallery-photo-grid .gallery-photo:hover .gallery-item-caption,
+.gallery-photo-grid .gallery-item:hover .gallery-item-caption {
+  box-shadow: 0 8px 20px rgba(7, 89, 133, 0.22) !important;
+}
