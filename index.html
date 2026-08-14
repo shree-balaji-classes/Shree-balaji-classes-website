@@ -279,5 +279,60 @@
   <div class="floating-whatsapp whatsapp" data-message="Hello, I would like to know more about the classes.">☏</div>
   <script src="config.js"></script>
   <script src="script.js"></script>
+  <!-- ART IMAGE LIGHTBOX -->
+<div class="art-lightbox" id="artLightbox">
+  <button class="art-lightbox-close" id="artLightboxClose" aria-label="Close">
+    &times;
+  </button>
+
+  <img id="artLightboxImage" src="" alt="Artwork preview">
+
+  <div class="art-lightbox-caption" id="artLightboxCaption"></div>
+</div>
+
+<script>
+  const artTiles = document.querySelectorAll('.art-photo-tile');
+  const lightbox = document.getElementById('artLightbox');
+  const lightboxImage = document.getElementById('artLightboxImage');
+  const lightboxCaption = document.getElementById('artLightboxCaption');
+  const lightboxClose = document.getElementById('artLightboxClose');
+
+  artTiles.forEach(tile => {
+    tile.addEventListener('click', () => {
+      const image = tile.querySelector('img');
+      const title = tile.querySelector('span');
+
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      lightboxCaption.textContent = title ? title.innerText.replace(/\n/g, ' ') : '';
+
+      lightbox.classList.add('active');
+      document.body.classList.add('lightbox-open');
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.classList.remove('lightbox-open');
+
+    setTimeout(() => {
+      lightboxImage.src = '';
+    }, 300);
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && lightbox.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+</script>
 </body>
 </html>
