@@ -2144,3 +2144,119 @@ body.lightbox-open {
     border-radius: 22px;
   }
 }
+/* =========================================================
+   SOCIAL LINKS — INSTAGRAM + YOUTUBE
+   Add this CSS for the social icons in the topbar and footer.
+========================================================= */
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  position: relative;
+}
+
+.topbar-text {
+  flex: 0 1 auto;
+}
+
+.social-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.social-top a {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.38);
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.social-top a:hover {
+  transform: translateY(-2px) scale(1.04);
+  background: rgba(255,255,255,.18);
+  border-color: rgba(255,255,255,.75);
+}
+
+.social-top svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+/* FOOTER */
+.footer-social {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #075985;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 800;
+  transition: transform .2s ease, opacity .2s ease, color .2s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-2px);
+  opacity: .8;
+  color: #0284c7;
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .topbar {
+    gap: 9px;
+    padding: 7px 12px;
+  }
+
+  .topbar-text {
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .social-top {
+    gap: 5px;
+    margin-left: 2px;
+    flex-shrink: 0;
+  }
+
+  .social-top a {
+    width: 27px;
+    height: 27px;
+  }
+
+  .social-top svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .footer-social {
+    gap: 12px;
+    margin-top: 15px;
+  }
+}
