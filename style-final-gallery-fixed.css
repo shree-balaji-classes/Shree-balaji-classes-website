@@ -2726,3 +2726,17 @@ body.lightbox-open {
   }
 
 }
+
+
+/* =========================================================
+   REMOVE TOP BAR SOCIAL ICONS
+   Keep the top announcement text only.
+========================================================= */
+.social-top {
+  display: none !important;
+}
+
+.topbar {
+  display: block !important;
+  text-align: center !important;
+}
