@@ -2260,3 +2260,469 @@ body.lightbox-open {
     margin-top: 15px;
   }
 }
+
+
+/* =========================================================
+   FINAL NAVIGATION SOCIAL LINKS
+   Instagram • YouTube • WhatsApp
+   These rules are intentionally LAST so they override
+   the older navigation styles above.
+========================================================= */
+
+/* Keep the navigation compact enough for all links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Normal navigation links */
+.nav-links > a:not(.nav-cta):not(.nav-social-link) {
+  position: relative;
+}
+
+/* Remove underline animation from social links */
+.nav-links > a.nav-social-link::after {
+  display: none !important;
+}
+
+/* Social links in navbar */
+.nav-social-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+
+  padding: 8px 10px !important;
+
+  border-radius: 999px !important;
+
+  font-size: 12px !important;
+  font-weight: 800 !important;
+
+  text-decoration: none !important;
+
+  transition:
+    transform .22s ease,
+    background .22s ease,
+    color .22s ease,
+    box-shadow .22s ease !important;
+}
+
+/* Social icon wrapper */
+.nav-social-icon {
+  width: 18px;
+  height: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.nav-social-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+
+  display: block !important;
+}
+
+/* Instagram */
+.nav-instagram {
+  color: #075985 !important;
+  background: #E8F7FF !important;
+  border: 1px solid #BDE7F7 !important;
+}
+
+.nav-instagram:hover {
+  color: #075985 !important;
+  background: #D5F2FF !important;
+  border-color: #7DD3FC !important;
+
+  transform: translateY(-2px) !important;
+
+  box-shadow:
+    0 8px 20px rgba(7, 89, 133, .12) !important;
+}
+
+/* YouTube */
+.nav-youtube {
+  color: #B42318 !important;
+  background: #FFF0EE !important;
+  border: 1px solid #F8C9C4 !important;
+}
+
+.nav-youtube:hover {
+  color: #991B1B !important;
+  background: #FFE3DF !important;
+  border-color: #FCA5A5 !important;
+
+  transform: translateY(-2px) !important;
+
+  box-shadow:
+    0 8px 20px rgba(180, 35, 24, .12) !important;
+}
+
+/* WhatsApp */
+.nav-whatsapp {
+  color: #087443 !important;
+  background: #E8F8EF !important;
+  border: 1px solid #BCE8CF !important;
+}
+
+.nav-whatsapp:hover {
+  color: #056334 !important;
+  background: #D9F4E4 !important;
+  border-color: #86D9A8 !important;
+
+  transform: translateY(-2px) !important;
+
+  box-shadow:
+    0 8px 20px rgba(8, 116, 67, .12) !important;
+}
+
+/* Make the icons inherit the social link colour */
+.nav-social-link svg {
+  color: currentColor !important;
+}
+
+/* Make WhatsApp feel like a CTA without becoming huge */
+.nav-whatsapp {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+/* =========================================================
+   NAVBAR RESPONSIVE
+========================================================= */
+
+@media (max-width: 1180px) {
+
+  .nav {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links > a:not(.nav-social-link) {
+    font-size: 12px;
+  }
+
+  .nav-social-link {
+    padding: 7px 8px !important;
+    font-size: 11px !important;
+  }
+
+  .nav-social-icon,
+  .nav-social-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+}
+
+@media (max-width: 1000px) {
+
+  .nav {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-links > a:not(.nav-social-link) {
+    font-size: 11px;
+  }
+
+  .nav-social-link {
+    padding: 7px 7px !important;
+    gap: 4px !important;
+  }
+
+  .nav-social-link > span:last-child {
+    display: none;
+  }
+
+  .nav-social-icon,
+  .nav-social-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+}
+
+/* Tablet / mobile menu */
+@media (max-width: 900px) {
+
+  .nav {
+    padding: 16px 20px;
+  }
+
+  .nav-links {
+    display: none;
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 76px;
+
+    padding: 18px 20px 22px;
+
+    background: rgba(243, 250, 255, .98);
+
+    backdrop-filter: blur(16px);
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    justify-content: flex-start;
+
+    gap: 6px;
+
+    border-bottom: 1px solid #CFE7F5;
+
+    box-shadow:
+      0 20px 45px rgba(7, 89, 133, .12);
+
+    white-space: normal;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links > a:not(.nav-social-link) {
+    width: 100%;
+
+    padding: 12px 10px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    text-align: left;
+  }
+
+  .nav-links > a:not(.nav-social-link):hover {
+    background: #EAF8FF;
+  }
+
+  .nav-social-link {
+    width: 100% !important;
+
+    justify-content: flex-start !important;
+
+    padding: 12px 14px !important;
+
+    border-radius: 14px !important;
+
+    font-size: 13px !important;
+
+    margin-top: 2px;
+  }
+
+  .nav-social-link > span:last-child {
+    display: inline !important;
+  }
+
+  .nav-social-icon,
+  .nav-social-icon svg {
+    width: 19px !important;
+    height: 19px !important;
+  }
+
+  .nav-social-link::after {
+    display: none !important;
+  }
+
+}
+
+/* Small phones */
+@media (max-width: 560px) {
+
+  .nav {
+    padding: 14px 16px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+
+  .brand b {
+    font-size: 14px;
+  }
+
+  .brand small {
+    font-size: 7px;
+  }
+
+  .nav-links {
+    top: 70px;
+    padding: 14px 16px 20px;
+  }
+
+  .nav-social-link {
+    padding: 11px 13px !important;
+  }
+
+}
+
+
+/* =========================================================
+   TOP BAR SOCIAL ICONS
+   Keep Instagram + YouTube visible at the very top.
+========================================================= */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  position: relative;
+}
+
+.topbar-text {
+  flex: 0 1 auto;
+}
+
+.social-top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.social-top a {
+  width: 29px;
+  height: 29px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  border: 1px solid rgba(255,255,255,.38);
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.08);
+
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease;
+}
+
+.social-top a:hover {
+  transform: translateY(-2px) scale(1.04);
+
+  background: rgba(255,255,255,.18);
+
+  border-color: rgba(255,255,255,.75);
+}
+
+.social-top svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+
+  .topbar {
+    gap: 8px;
+    padding: 7px 10px;
+  }
+
+  .topbar-text {
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  .social-top {
+    gap: 5px;
+    margin-left: 1px;
+  }
+
+  .social-top a {
+    width: 27px;
+    height: 27px;
+  }
+
+  .social-top svg {
+    width: 13px;
+    height: 13px;
+  }
+
+}
+
+
+/* =========================================================
+   FOOTER SOCIAL LINKS
+========================================================= */
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #075985;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  transition:
+    transform .2s ease,
+    opacity .2s ease,
+    color .2s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-2px);
+  opacity: .8;
+  color: #0284C7;
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+
+  .footer-social {
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+}
